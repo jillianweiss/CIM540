@@ -9,3 +9,6 @@
 [Link to Google](http://www.google.com)
 
 ### [Link to Github](http://www.github.com)
+
+
+[Week 1 Readme](https://github.com/jillianweiss/CIM540/tree/master/Week1/readme.md)
