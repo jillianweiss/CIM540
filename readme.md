@@ -1,16 +1,7 @@
-# CIM540
+# Jill Weiss's CIM540 Page!!!
 
-## This is smaller than above.
+## A little about me:
 
-### This is even smaller. 
-
-#### This might be the smallest. 
-
-[Link to Google](http://www.google.com)
-
-### [Link to Github](http://www.github.com)
-
-
-[Week 1 Readme](https://github.com/jillianweiss/CIM540/tree/master/Week1/readme.md)
-
-![Penguin Image](http://honesttopaws.com/wp-content/uploads/sites/5/2016/02/3-penguins.jpg)
+#### I am a junior studying computer science and media management at the University of Miami. 
+#### I learned a lot about creative coding this summer when I worked for a company called Girls Who Code. 
+#### I am very excited to work with data visualization this semester!!
