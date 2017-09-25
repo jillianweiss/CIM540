@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Retirement Calculator</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            color: green;
+        }
+       
+    </style>
+
+ </head>
+
+
+<body>
+
+    <h1>Retirement Calculator</h1>
+    <img src="https://az616578.vo.msecnd.net/files/2016/05/21/6359944300290907561102987068_re%2011.jpg" width=350>
+    
+    <br>
+    
+
+    <p><i>How many years until you can retire?</i></p>
+    
+    
+    <form>
+        <label for="age">Enter your age: </label>
+        <input type="text" name="age" id="age">
+        <button type="button" id="Button" onclick="retirementCalculation()">Enter</button>
+    </form>
+    
+    <div id="answer"></div>
+    
+
+    <script>
+        
+        function retirementCalculation(){
+            var avgRetirementAge = 63;
+            var yearsOld = document.getElementById("age").value;
+        
+            var numYears = avgRetirementAge - yearsOld;
+        
+            var response = "<h2>You have only " + numYears + " years to go until retirement!</h2>"
+            console.log(response);
+        
+            var outputText = document.getElementById("answer");
+        
+            outputText.innerHTML = response;
+        }
+        
+        var getButton = document.getElementById("Button");
+        getButton.addEventListener("click", retirementCalculation);
+        
+     
+    </script>
+
+</body>
+
+</html>

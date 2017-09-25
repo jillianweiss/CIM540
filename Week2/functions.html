@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My App</title>
+
+    <style>
+        /* Enter CSS below */
+    </style>
+
+ </head>
+
+
+<body>
+
+    <h1>My App</h1>
+
+    <p><i>Description goes here</i></p>
+    
+    <button type ="button" onclick="greeting('Jill')">Check console</button>
+
+    <script>
+       /* Comment: Enter code below */
+        
+        var byeBye = "So long ";
+        
+//      first declare the function
+        function printMessage(){
+            console.log("Printing a message.");
+        }
+
+        
+        function greeting(name){
+            var message = "Hello " + name + "!";
+//          console.log("name is " + name);
+            console.log(message);
+        }
+        
+        
+        function sayHello(){
+            var name = prompt("Enter a name.");
+            console.log("Hey " + name + "!");
+        }
+        
+        function sayByeBye(name){
+            var message = byeBye + name + "!";
+            console.log(message);
+        }
+        
+        
+        
+//      then call the function
+        printMessage();
+        greeting("Jill");
+        sayHello();
+        sayByeBye("Jill");
+        
+    </script>
+
+</body>
+
+</html>
