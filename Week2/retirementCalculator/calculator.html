@@ -31,7 +31,7 @@
     <form>
         <label for="age">Enter your age: </label>
         <input type="text" name="age" id="age">
-        <button type="button" id="Button" onclick="retirementCalculation()">Enter</button>
+        <button type="button" id="lButton">Enter</button>
     </form>
     
     <div id="answer"></div>
@@ -53,7 +53,7 @@
             outputText.innerHTML = response;
         }
         
-        var getButton = document.getElementById("Button");
+        var getButton = document.getElementById("lButton");
         getButton.addEventListener("click", retirementCalculation);
         
      
