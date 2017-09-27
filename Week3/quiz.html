@@ -5,7 +5,43 @@
     <title>University of Miami Quiz</title>
 
     <style>
-        /* Enter CSS below */
+        @import url('https://fonts.googleapis.com/css?family=Oswald|Raleway');
+
+        body{
+            text-align: center;
+            background-color: #ccffcc;
+        }
+        
+        h1{
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        p{
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+        }
+        
+        form{
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+        }
+        
+        .question{
+            font-size: 15px;
+            font-family: 'Raleway', sans-serif;
+
+        }
+        
+        div{
+            font-family: 'Raleway', sans-serif;
+            font-size: 40px;
+        }
+        
+        button{
+            font-size: 15px;
+            font-family: 'Raleway', sans-serif;
+            border-radius: 12px;
+        }
     </style>
 
 </head>
@@ -91,7 +127,7 @@
             var output = document.getElementById("outputText");
             if (getResponse[0].value == answers[0] && getResponse[1].value == answers[1] && getResponse[2].value == answers[2] && getResponse[3].value == answers[3] && getResponse[4].value == answers[4]) {
                 console.log("You really know your school!");
-                output.innerHTML = "You really know your school!";
+                output.innerHTML = "You really know your school! Go Canes!";
             } else {
                 console.log("Do you even go here?");
                 output.innerHTML = "Do you even go here?";
