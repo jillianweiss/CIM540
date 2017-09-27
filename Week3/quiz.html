@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>University of Miami Quiz</title>
+
+    <style>
+        /* Enter CSS below */
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>How well do you know the University of Miami?</h1>
+
+    <p><i>Answer the following questions.</i></p>
+
+    <form>
+
+
+        <label for="question1">Who is the president of the University of Miami?</label>
+        <select name="question1" id="question1" class="question">
+            <option value="donaldTrump">Donald Trump</option>
+            <option value="zevenRodriguez">Zeven Rodriguez</option>
+            <option value="julioFrenk">Julio Frenk</option>
+            <option value="justinBieber">Justin Bieber</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="question2">What is the University of Miami's mascot?</label>
+        <select name="question2" id="question2" class="question">
+            <option value="marlin">Billy the Marlin</option>
+            <option value="sebastian">Sebastian the Ibis</option>
+            <option value="brad">Brad Kaaya</option>
+            <option value="uncleSam">Uncle Sam</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="question3">What is the name of the lake in the middle of campus?</label>
+        <select name="question3" id="question3" class="question">
+            <option value="osceola">Lake Osceola</option>
+            <option value="ibis">Ibis Lake</option>
+            <option value="miami">Lake Miami</option>
+            <option value="michigan">Lake Michigan</option>
+        </select>
+
+        <br>
+        <br>
+        
+        <label for="question4">Who graduated from UM?</label>
+        <select name="question4" id="question4" class="question">
+            <option value="arod">Alex Rodriguez</option>
+            <option value="theRock">Dwayne "The Rock" Johnson</option>
+            <option value="jenniferLopez">Jennifer Lopez</option>
+            <option value="obama">Barack Obama</option>
+        </select>
+        
+        <br>
+        <br>
+        
+        <label for="question5">Where's the best place to get drunk on campus?</label>
+        <select name="question5" id="question5" class="question">
+            <option value="class">Class</option>
+            <option value="dorms">The Freshman Dorms</option>
+            <option value="library">Richter Library</option>
+            <option value="rat">The Rat</option>
+        </select>
+        
+        <br>
+        <br>
+
+        <button type="button" id="submitAnswers">Submit Answers</button>
+
+    </form>
+
+    <br>
+
+    <div id="outputText"></div>
+
+    <script>
+        /* Comment: Enter code below */
+        function checkAnswers() {
+            var getResponse = document.getElementsByClassName("question");
+            //console.log(getResponse[0].value); To view the value of each individual element
+            var output = document.getElementById("outputText");
+            if (getResponse[0].value == answers[0] && getResponse[1].value == answers[1] && getResponse[2].value == answers[2] && getResponse[3].value == answers[3] && getResponse[4].value == answers[4]) {
+                console.log("You really know your school!");
+                output.innerHTML = "You really know your school!";
+            } else {
+                console.log("Do you even go here?");
+                output.innerHTML = "Do you even go here?";
+            }
+        }
+        var answers = ["julioFrenk", "sebastian", "osceola", "theRock", "rat"];
+        var getButton = document.getElementById("submitAnswers");
+        getButton.addEventListener("click", checkAnswers);
+    </script>
+
+</body>
+
+</html>
