@@ -92,3 +92,7 @@ function mousePressed(){
     bgColor = color(89, 251, 255);
     
 }
+
+function mouseReleased(){
+    bgColor = bgColor = color(179, 253, 255);
+}
