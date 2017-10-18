@@ -11,6 +11,7 @@ var bgColor = 0;
 
 var buttonRedColor, buttonGreenColor, buttonBlueColor;
 
+
 function setup(){
     
     createCanvas(1000,700);
@@ -20,13 +21,17 @@ function setup(){
     posX = width/2;
     posY = height/2;
     
-   
+    var redText = createP("Red");
+    buttonRedColor = createSlider(0, 255, 0);
+    var greenText = createP("Green");
+    buttonGreenColor = createSlider(0, 255, 0);
+    var blueText = createP("Blue");
+    buttonBlueColor = createSlider(0, 255, 0);
+    
 }
 
 function draw(){
     
-
-        
     background(bgColor);
     
     posX = mouseX;
@@ -79,10 +84,6 @@ function draw(){
     
     fill(mouthColor);
     ellipse(posX + 20, posY + 25, 5, 5);
-    
-    //Snow
-//    fill(ballColor);
-//    ellipse(posX + random(1000), posY, random(20), random(20));
 
 }
 
