@@ -11,8 +11,11 @@ var bgColor = 0;
 var img;
 var hatPosX = 380;
 var hatPosY = 200;
+var wearingHatX = 440;
+var wearingHatY = 353;
 
 var buttonRedColor, buttonGreenColor, buttonBlueColor;
+
 
 function preload(){
     img = loadImage("topHat.png");
@@ -33,6 +36,7 @@ function setup(){
     var blueText = createP("Blue");
     buttonBlueColor = createSlider(0, 255, 0);
     
+    
 }
 
 function draw(){
@@ -41,9 +45,14 @@ function draw(){
     
     image(img, hatPosX, hatPosY, 120, 120);
     
-    if (mouseX < hatPosX && mouseX > hatPosX + 120 && mouseY < hatPosY - 120 && mouseY > hatPosY + 120) {
-        fill(179, 253, 255);
-        rect(380, 200, 120, 120);
+    textSize(32);
+    fill(0);
+    var snowmanText = text("Put the hat on the snowman.", 250, 100);
+    
+    if (mouseX >= 400 && mouseX <= 480 && mouseY >= 350 && mouseY <= 356) {
+        var didItText = text("You did it!", 375, 150);
+        console.log("done.");
+        
     }
 
 
