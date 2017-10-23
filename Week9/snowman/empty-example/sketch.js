@@ -8,16 +8,21 @@ var noseColor = "orange";
 var smBall = 120;
 var lgBall = 180;
 var bgColor = 0;
+var img;
+var hatPosX = 380;
+var hatPosY = 200;
 
 var buttonRedColor, buttonGreenColor, buttonBlueColor;
 
+function preload(){
+    img = loadImage("topHat.png");
+}
 
 function setup(){
     
     createCanvas(1000,700);
     bgColor = color(179, 253, 255);
     
-
     posX = width/2;
     posY = height/2;
     
@@ -33,6 +38,15 @@ function setup(){
 function draw(){
     
     background(bgColor);
+    
+    image(img, hatPosX, hatPosY, 120, 120);
+    
+    if (mouseX < hatPosX && mouseX > hatPosX + 120 && mouseY < hatPosY - 120 && mouseY > hatPosY + 120) {
+        fill(179, 253, 255);
+        rect(380, 200, 120, 120);
+    }
+
+
     
     posX = mouseX;
     posY = mouseY;
