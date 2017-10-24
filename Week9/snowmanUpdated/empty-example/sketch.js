@@ -3,7 +3,7 @@ var posY = 0;
 var ballColor = "white";
 var eyeColor = "black";
 var mouthColor = "brown";
-var buttonColor ="blue";
+var buttonColor = "blue";
 var noseColor = "orange";
 var smBall = 120;
 var lgBall = 180;
@@ -13,17 +13,20 @@ var hatPosX = 380;
 var hatPosY = 200;
 var wearingHatX = 440;
 var wearingHatY = 353;
+var snow = [];
+
+//var flakeX, flakeY;
 
 var buttonRedColor, buttonGreenColor, buttonBlueColor;
 
 
-function preload(){
+function preload() {
     img = loadImage("topHat.png");
 }
 
-function setup(){
+function setup() {
     
-    createCanvas(1000,700);
+    createCanvas(1000, 700);
     bgColor = color(179, 253, 255);
     
     posX = width/2;
@@ -36,15 +39,32 @@ function setup(){
     var blueText = createP("Blue");
     buttonBlueColor = createSlider(0, 255, 0);
     
+    //Snow
+    flakeX = random(1, 1000);
+    flakeY = 5;
     
 }
 
-function draw(){
+function draw() {
     
     background(bgColor);
     
     image(img, hatPosX, hatPosY, 120, 120);
     
+    //Snowfor (var i = 0; i < 50; i++) {
+        
+        fill(255);
+        ellipse(flakeX, flakeY, 10, 10);
+        flakeX = flakeX + random(-1, 1);
+        flakeY = flakeY + 1;
+        
+        if(flakeY > 700){
+            flakeY = 5;
+        }
+
+    
+    
+    //Hat on Snowman game
     textSize(32);
     fill(0);
     var snowmanText = text("Put the hat on the snowman.", 250, 100);
