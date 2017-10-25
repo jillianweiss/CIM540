@@ -8,10 +8,10 @@ function draw(){
     frameRate(1);
     background(255);
     
-//    for(var i = 0; i <= 10; i++){
-//        //console.log(i);
-//        ellipse(random(width), random(height), 10, 10);
-//    }
+    for(var i = 0; i <= 10; i++){
+        //console.log(i);
+        ellipse(random(width), random(height), 10, 10);
+    }
     
     for(var i = 0; i<=height; i++){
         stroke(random(256));
