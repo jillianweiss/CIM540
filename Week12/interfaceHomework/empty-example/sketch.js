@@ -1,46 +1,66 @@
-var balls = [];
-var gravity = 0.5;
+var buttons = [];
+var pictures = [];
+//var pic = pictures[0];
 
-function setup(){
-  createCanvas(400, 400);
+function preload() {
+    pictures.push(loadImage("assets/u.jpg"));
+    pictures.push(loadImage("assets/sac.jpg"));
+    pictures.push(loadImage("assets/library.jpg"));
+    pictures.push(loadImage("assets/healthcenter.jpg"));
+
+}
+
+function setup() {
+
+    createCanvas(400, 400);
+
+    buttons.push(new button(100, 300, 50, "pink", text("back", 110, 300)));
+    buttons.push(new button(300, 300, 50, "pink", text("next", 310, 300)));
+
+
 
 }
 
 function draw() {
-  background(0);
+    buttons[0].display();
+    buttons[1].display();
 
-  for (var i = 0; i < balls.length; i ++){
-    balls[i].moreBalls();
-    balls[i].display();
-  }
-}
-
-function mousePressed(){
-
-  balls.push(new ball(mouseX, mouseY, 20, 20));
+    image(pictures[0], 100, 50, 100, 100);
 
 }
 
-function ball(tempX, tempY, 20){
-  this.x = tempX;
-  this.y = tempY;
-  this.speed = 0;
+function mousePressed() {
+    if (buttons[0].check() == true) {
+        image(pictures[3], 100, 50, 100, 100);
 
-  this.display = function(){
 
-    fill("white");
-    ellipse(this.x, this.y, 20, 20);
-  }
-
-  this.moreBalls = function(){
-
-    this.y = this.y + this.speed;
-
-    this.speed = this.speed + gravity;
-
-    if (this.y > height) {
-      this.y = height;
-      this.speed = this.speed * -0.95;
     }
-  }
+
+    if (buttons[1].check() == true) {
+        image(pictures[1], 100, 50, 100, 100);
+
+    }
+
+}
+
+function button(tempX, tempY, tempSize, tempColor, tempText) {
+    this.x = tempX;
+    this.y = tempY;
+    this.buttonSize = tempSize;
+    this.color = tempColor;
+    this.text = tempText;
+
+    this.display = function () {
+        fill(this.color);
+        rect(this.x, this.y, this.buttonSize, this.buttonSize);
+    }
+
+    this.check = function () {
+        if (mouseX > this.x && mouseX < this.x + this.buttonSize && mouseY > this.y && mouseY < this.y + this.buttonSize) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
