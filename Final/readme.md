@@ -2,9 +2,9 @@
 
 ## Possible Ideas
 
-### 1. Using the Speech Library
-#### Ummmm maybe having an icon move on the screen dependant on the pitch of your voice to create drawings with voice.
-
+### 1. Data  Visualization
+#### View the all time best 100 box office opening weekend movie releases and changing the view based on production studio, year, how many theaters it was released at, etc. 
+##### Data from http://www.boxofficemojo.com/alltime/weekends/
 
 ### 2. Using the Play Library
 #### Make a cute little game using sprites.
