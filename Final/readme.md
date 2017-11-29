@@ -3,7 +3,7 @@
 ## Possible Ideas
 
 ### 1. Data  Visualization
-#### View the all time best 100 box office opening weekend movie releases and changing the view based on production studio, year, how many theaters it was released at, etc. 
+#### View the top 25 box office opening weekend movie releases of 2017 and change the view based on production studio, date, etc. 
 ##### Data from http://www.boxofficemojo.com/alltime/weekends/
 
 ### 2. Using the Play Library
