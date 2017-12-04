@@ -2,17 +2,16 @@ var movies;
 
 var movieData = [];
 
+var baseline = 500;
 
 function preload() {
     movies = loadTable("../../assets/2017movies.csv", "csv", "header");
 }
 
 function setup() {
-    createCanvas(1000, 500);
 
-    //    var red = random(0, 255);
-    //    var green = random(0, 255);
-    //    var blue = random(0, 255);
+    createP("Top 25 Opening Weekend Box Office Movie Releases of 2017").addClass("title");
+    createCanvas(1000, 1000);
 
 
     print(movies.getRowCount() + " total rows in table");
@@ -25,16 +24,26 @@ function setup() {
     for (var r = 0; r < movies.getRowCount(); r++) {
 
 
-        movieData.push(new movie((r * 30), 20, random(255), random(255), random(255), 100000));
-
-        console.log(movie.color);
+        movieData.push(new movie((20 + r * 30), 20, 200, 100000, ""));
 
         for (var c = 0; c < movies.getColumnCount(); c++) {
-            print(movies.getString(r, c));
+            //            print(movies.getString(r, c));
+
+            if (c == 0) {
+                movieData[r].title = movies.getString(r, c);
+            }
+
             if (c == 1) {
                 console.log(movies.getString(r, c));
                 movieData[r].total = int(movies.getString(r, c));
+
+                push(new totalText(movieData[r].total, (20 + r * 30), 400));
+
+
+                //                createP(movieData[r].total).addClass("totals");
             }
+
+
         }
 
     }
@@ -48,33 +57,48 @@ function draw() {
 
         movieData[i].display();
     }
+
+    for (i in totalText) {
+
+        totalText[i].display();
+    }
     //    var num = 174000000;
     //    var dataMapped = map(num, 175000000, 35000000, height, 0);
     //    fill(0);
     //    rect(0, height - dataMapped, 10, height);
 }
 
-function movie(tempX, tempBoxWidth, tempR, tempG, tempB, tempTotal) {
+function movie(tempX, tempBoxWidth, tempColor, tempTotal, movieTitle) {
     this.x = tempX;
     this.boxWidth = tempBoxWidth;
-    this.r = tempR;
-    this.g = tempG;
-    this.b = tempB;
+    this.color = tempColor;
     this.total = tempTotal;
-
-    var color = fill(tempR, tempG, tempB);
+    this.title = movieTitle;
 
     this.display = function () {
-        color;
 
-        //var mappedHeight = map()
 
-        var dataMapped = map(this.total, 175000000, 35000000, height, 0);
+        var dataMapped = map(this.total, 175000000, 35000000, baseline, 0);
+        fill(this.color);
+
+        rect(this.x, baseline - dataMapped, this.boxWidth, baseline);
         fill(0);
-        rect(0, height - dataMapped, 10, height);
+        push();
+        translate(this.x, baseline - dataMapped);
+        rotate(PI / 2);
+        text(this.title, 0, 0);
+        pop();
 
-        rect(this.x, height - dataMapped, this.boxWidth, height);
+    }
 
+}
+
+function totalText(tempTotal, x, y) {
+
+    this.display = function () {
+
+        createP(tempTotal.addClass("totals"));
+        tempTotal.position(this.x, this.y);
     }
 
 }
