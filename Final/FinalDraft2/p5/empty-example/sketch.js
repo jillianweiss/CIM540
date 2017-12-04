@@ -25,7 +25,7 @@ function setup() {
     for (var r = 0; r < movies.getRowCount(); r++) {
 
 
-        movieData.push(new movie((r * 10), 10, random(255), random(255), random(255), 100000));
+        movieData.push(new movie((r * 30), 20, random(255), random(255), random(255), 100000));
 
         console.log(movie.color);
 
