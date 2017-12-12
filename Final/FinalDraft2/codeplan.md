@@ -1,6 +1,6 @@
 # Code Plan Draft #1
 
-## Top 100 Opening Weekend Box Office Movie Releases Data Visualization
+## Top 25 Opening Weekend Box Office Movie Releases Data Visualization
 
 This program is a data visualization that takes data from  http://www.boxofficemojo.com/alltime/weekends/ and displays it in various ways according to different options.
 
