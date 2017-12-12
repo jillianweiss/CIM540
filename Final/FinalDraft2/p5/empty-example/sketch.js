@@ -24,7 +24,7 @@ function setup() {
     for (var r = 0; r < movies.getRowCount(); r++) {
 
 
-        movieData.push(new movie((20 + r * 30), 20, 200, 100000, ""));
+        movieData.push(new movie((20 + r * 30), 20, color(255, 0, 0), 100000, ""));
 
         for (var c = 0; c < movies.getColumnCount(); c++) {
             //            print(movies.getString(r, c));
@@ -53,6 +53,9 @@ function setup() {
 function draw() {
     background(255);
 
+    line(20, height, 20, 0);
+    line(20, height, 1000, height);
+
     for (i in movieData) {
 
         movieData[i].display();
@@ -71,15 +74,17 @@ function draw() {
 function movie(tempX, tempBoxWidth, tempColor, tempTotal, movieTitle) {
     this.x = tempX;
     this.boxWidth = tempBoxWidth;
-    this.color = tempColor;
+    this.setFill = tempColor;
     this.total = tempTotal;
     this.title = movieTitle;
 
     this.display = function () {
 
-
+        fill(this.setFill);
         var dataMapped = map(this.total, 175000000, 35000000, baseline, 0);
-        fill(this.color);
+
+
+        //        rectMode(CORNERS);
 
         rect(this.x, baseline - dataMapped, this.boxWidth, baseline);
         fill(0);
@@ -101,4 +106,35 @@ function totalText(tempTotal, x, y) {
         tempTotal.position(this.x, this.y);
     }
 
+}
+
+function mousePressed() {
+    if (companyButton.check() == true) {
+        console.log("company button pressed");
+        if (movieDate[])
+    }
+
+    if (interfaceItems[1].check() == true) {
+        brushSize--;
+    }
+}
+
+function companyButton(tempX, tempY, tempBoxSize, tempColor) {
+    this.x = tempX;
+    this.y = tempY;
+    this.boxSize = tempBoxSize;
+    this.setFill = tempColor;
+
+    this.display = function () {
+        fill(this.setFill);
+        rect(this.x, this.y, this.boxSize, this.boxSize);
+    }
+
+    this.check = function () {
+        if (mouseX > this.x && mouseX < (this.x + this.boxSize) && mouseY > this.y && mouseY < (this.y + this.boxSize)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
