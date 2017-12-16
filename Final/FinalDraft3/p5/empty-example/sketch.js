@@ -6,34 +6,24 @@ var buttons = [];
 
 
 
-
 function preload() {
     movies = loadTable("../../assets/2017movies.csv", "csv", "header");
-    fontRegular = loadFont("../../assets/Raleway-Regular.ttf");
-    fontBold = loadFont("../../assets/Raleway-Bold.ttf");
-
 }
 
 function setup() {
 
     createP("Top 25 Opening Weekend Box Office Movie Releases of 2017").addClass("title");
-
-    //canvas is 1100x800px
+    //canvas is 1000x1000px
     createCanvas(1100, 800);
 
+    createP("Click on the pink box to view the movies by Production Company.").addClass("instructions");
+    createP("Fuscia is Diseny. Green is Warner Brothers. Blue is Sony. Orange is Universal. Purple is 20th Century Fox. Yellow is Paramount. Indigo is Lionsgate.").addClass("key");
 
-    createP("Click on the pink box to view the movies by <b>Production Company</b>.").addClass("company");
-    createP("Fuscia is Disney. Green is Warner Brothers. Blue is Sony. Orange is Universal. Purple is 20th Century Fox. Yellow is Paramount. Indigo is Lionsgate.").addClass("company");
+    createP("Click on the green box to view the movies by Season.").addClass("instructions");
+    createP("Green is Summer. Yellow is Summer. Orange is Fall. Blue is Winter.").addClass("key");
 
-    createP("Click on the green box to view the movies by <b>Season</b>.").addClass("season");
-    createP("Green is Summer. Yellow is Summer. Orange is Fall. Blue is Winter.").addClass("season");
-
-    createP("Click on the gray box to <b>return</b> to the original color.").addClass("return");
-
-
-    buttons.push(new button(400, 700, 50, color(255, 140, 243)));
-    buttons.push(new button(500, 700, 50, color(0, 177, 16)));
-    buttons.push(new button(600, 700, 50, color(226, 222, 226)));
+    buttons.push(new button(20, 700, 50, "pink"));
+    buttons.push(new button(100, 700, 50, "green"));
 
 
 
@@ -48,7 +38,7 @@ function setup() {
     for (var r = 0; r < movies.getRowCount(); r++) {
 
         //for every row, create a new movie bar
-        movieData.push(new movie((65 + r * 40), 30, color(226, 222, 226), 100000, ""));
+        movieData.push(new movie((50 + r * 42), 30, color(226, 222, 226), 100000, ""));
 
         //cycle through the columns of each row
         for (var c = 0; c < movies.getColumnCount(); c++) {
@@ -73,6 +63,9 @@ function setup() {
             }
         }
 
+
+
+        //                createP(movieData[r].total).addClass("totals");
     }
 
 }
@@ -83,8 +76,8 @@ function draw() {
     background(255);
 
     strokeWeight(3);
-    line(50, 5, 50, 600);
-    line(50, 600, 1100, 600);
+    line(35, 0, 35, 600);
+    line(35, 600, 1100, 600);
 
     for (i in movieData) {
 
@@ -96,51 +89,64 @@ function draw() {
         buttons[i].display();
     }
 
-    //Y Axis
-    fill(0, 0, 0);
-    textFont(fontRegular);
-    text("200M", 15, 15);
-    text("150M", 15, 140);
-    text("100M", 15, 270);
-    text("50M", 20, 415);
-    text("0M", 30, 600);
+    //    for (i in movieData) {
+    //
+    //        console.log(movieData[i].company);
+    //    }
 
-    text("source: www.boxofficemojo.com", 470, 630);
-
+    //    var num = 174000000;
+    //    var dataMapped = map(num, 175000000, 35000000, height, 0);
+    //    fill(0);
+    //    rect(0, height - dataMapped, 10, height);
 }
 
-function movie(tempX, tempBoxWidth, tempColor, tempTotal, movieTitle) {
-    this.x = tempX;
-    this.boxWidth = tempBoxWidth;
+function movie(tempY, tempBoxHeight, tempColor, tempTotal, movieTitle) {
+    this.y = tempY;
+    this.boxHeight = tempBoxHeight;
     this.setFill = tempColor;
     this.total = tempTotal;
     this.title = movieTitle;
+    this.hovering = false;
 
     this.display = function () {
 
         fill(this.setFill);
-        var dataMapped = map(this.total, 35000000, 200000000, 150, 600);
+        var dataMapped = map(this.total, 35000000, 175000000, 200, 1000);
 
-        strokeWeight(2);
-        rect(this.x, 600 - dataMapped, this.boxWidth, dataMapped);
-        fill(0);
-        push();
-        translate(this.x + 18, 595);
-        angleMode(DEGREES);
-        rotate(270);
-        textFont(fontBold);
-        text(this.title, 0, 0);
-        pop();
+        strokeWeight(1);
+        rect(35, dataMapped, 1000 - dataMapped, 50);
+        //        fill(0);
+        //        push();
+        //        translate(this.y + 5, 605 - dataMapped);
+        //        rotate(PI / 2);
+        //        text(this.title, 0, 0);
+        //        pop();
 
-        push();
-        translate(this.x + 10, 595 - dataMapped);
-        angleMode(DEGREES);
-        rotate(320);
-        textFont(fontRegular);
-        text("$" + this.total, 0, 0);
-        pop();
+        if (this.hovering == true) {
+            console.log("hovering");
+
+        }
     }
 
+    this.check = function () {
+        if (mouseX > this.x && mouseX < (this.x + this.boxWidth)) {
+            this.hovering = true;
+        } else {
+            this.hovering = false;
+        }
+    }
+}
+
+
+
+function yAxis(tempX, tempY, tempText) {
+    this.x = tempX;
+    this.y = tempY;
+    this.text = tempText;
+
+    this.display = function () {
+        text(this.title, this.x, this.y);
+    }
 }
 
 
@@ -170,7 +176,6 @@ function mousePressed() {
                 movieData[i].setFill = color(255, 255, 102);
             }
         }
-
     }
 
     if (buttons[1].check() == true) {
@@ -188,13 +193,6 @@ function mousePressed() {
                 movieData[i].setFill = color(255, 102, 0);
             }
         }
-    }
-
-    if (buttons[2].check() == true) {
-        for (i in movieData) {
-            movieData[i].setFill = color(226, 222, 226);
-        }
-
     }
 }
 

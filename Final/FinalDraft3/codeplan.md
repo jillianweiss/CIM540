@@ -2,7 +2,7 @@
 
 ## Top 25 Opening Weekend Box Office Movie Releases Data Visualization
 
-This program is a data visualization that takes data from  http://www.boxofficemojo.com/yearly/chart/?view=releasedate&view2=domestic&yr=2017&sort=opengross&order=DESC&p=.htm and displays it in various ways according to different options.
+This program is a data visualization that takes data from  http://www.boxofficemojo.com/alltime/weekends/ and displays it in various ways according to different options.
 
 * Array of 25 movie ojects
 * Object has: Opening Weekend Gross, Production Studio, Number of theaters, and Date of opening weekend. 
