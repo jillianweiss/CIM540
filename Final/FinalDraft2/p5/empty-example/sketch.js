@@ -99,11 +99,11 @@ function draw() {
     //Y Axis
     fill(0, 0, 0);
     textFont(fontRegular);
-    text("200M", 15, 15);
-    text("150M", 15, 140);
-    text("100M", 15, 270);
-    text("50M", 20, 415);
-    text("0M", 30, 600);
+    text("$200M", 10, 15);
+    text("$150M", 10, 140);
+    text("$100M", 10, 270);
+    text("$50M", 15, 415);
+    text("$0M", 20, 600);
 
     text("source: www.boxofficemojo.com", 470, 630);
 
