@@ -31,9 +31,9 @@ function setup() {
     createP("Click on the gray box to <b>return</b> to the original color.").addClass("return");
 
 
-    buttons.push(new button(400, 700, 50, color(255, 140, 243)));
-    buttons.push(new button(500, 700, 50, color(0, 177, 16)));
-    buttons.push(new button(600, 700, 50, color(226, 222, 226)));
+    buttons.push(new button(425, 700, 50, color(255, 140, 243)));
+    buttons.push(new button(525, 700, 50, color(0, 177, 16)));
+    buttons.push(new button(625, 700, 50, color(226, 222, 226)));
 
 
 
@@ -44,7 +44,7 @@ function setup() {
     print(movies.getColumn("movie"));
 
 
-    //cycle through rows of the cvs file
+    //cycle through rows of the csv file
     for (var r = 0; r < movies.getRowCount(); r++) {
 
         //for every row, create a new movie bar
