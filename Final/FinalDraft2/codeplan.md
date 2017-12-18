@@ -10,4 +10,4 @@ The program uses a CSV (comma separated value) file that I created based on spec
 3. the month and day of the release, 
 4. and the production company. 
 
-Then, I created movie objects (which is the bars of the graph), using the information collected from the file. Using different variables, I was able to change the color of the graphs depending on Production Company and Season when a specific button (another oject) was clicked. 
+Then, I created movie objects (which is the bars of the graph), using the information collected from the file. Using different variables, I was able to change the color of the graphs depending on Production Company and Season when a specific button (another object) was clicked. 
