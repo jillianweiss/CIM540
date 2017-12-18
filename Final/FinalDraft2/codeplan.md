@@ -1,4 +1,4 @@
-# Code Plan Draft #1
+# Code Plan
 
 ## Top 25 Opening Weekend Box Office Movie Releases Data Visualization
 
